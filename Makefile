@@ -6,7 +6,7 @@
 #    By: lguiller <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 11:15:29 by lguiller          #+#    #+#              #
-#    Updated: 2018/08/14 11:59:38 by lguiller         ###   ########.fr        #
+#    Updated: 2018/09/07 14:03:07 by lguiller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 ##################
 
 NAME	= libvect.a
-SRC		= rotation_3d.c normalize.c dot_product.c
+SRC		= rotation_3d.c normalize.c dot_product.c reverse_vect.c
 OBJ		= $(SRC:.c=.o)
 FLAGS	= -Wall -Wextra -Werror
 
