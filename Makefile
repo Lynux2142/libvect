@@ -6,7 +6,7 @@
 #    By: lguiller <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 11:15:29 by lguiller          #+#    #+#              #
-#    Updated: 2018/09/07 14:03:07 by lguiller         ###   ########.fr        #
+#    Updated: 2018/09/12 17:31:00 by lguiller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ _CUT		= "\033[k"
 ##   TARGETS    ##
 ##################
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re norme
 
 all: $(NAME)
 
@@ -67,3 +67,6 @@ fclean: clean
 re:
 	@$(MAKE) fclean
 	@$(MAKE)
+
+norme:
+	@norminette *.[c,h]
