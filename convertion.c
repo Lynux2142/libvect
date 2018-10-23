@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normalize.c                                        :+:      :+:    :+:   */
+/*   radian_degre_convertion.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lguiller <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/08 17:11:24 by lguiller          #+#    #+#             */
-/*   Updated: 2018/10/23 13:48:12 by lguiller         ###   ########.fr       */
+/*   Created: 2018/10/23 14:00:42 by lguiller          #+#    #+#             */
+/*   Updated: 2018/10/23 14:03:20 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvect.h"
 
-float	ft_vecnorm(t_mat3 a)
+double	ft_torad(double x)
 {
-	return (sqrt(a.x * a.x + a.y * a.y + a.z * a.z));
+	return (x * M_PI / 180.0);
 }
 
-t_mat3	ft_vecnormalize(t_mat3 v)
+double	ft_todeg(double x)
 {
-	double	d;
-
-	d = ft_vecnorm(v);
-	v.x /= d;
-	v.y /= d;
-	v.z /= d;
-	return (v);
+	return (x * 180.0 / M_PI);
 }

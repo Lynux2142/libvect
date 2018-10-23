@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normalize.c                                        :+:      :+:    :+:   */
+/*   vector3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lguiller <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/08 17:11:24 by lguiller          #+#    #+#             */
-/*   Updated: 2018/10/23 13:48:12 by lguiller         ###   ########.fr       */
+/*   Created: 2018/10/23 13:55:10 by lguiller          #+#    #+#             */
+/*   Updated: 2018/10/23 14:04:18 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvect.h"
 
-float	ft_vecnorm(t_mat3 a)
+float	ft_vecangle(t_mat3 a, t_mat3 b)
 {
-	return (sqrt(a.x * a.x + a.y * a.y + a.z * a.z));
-}
-
-t_mat3	ft_vecnormalize(t_mat3 v)
-{
-	double	d;
-
-	d = ft_vecnorm(v);
-	v.x /= d;
-	v.y /= d;
-	v.z /= d;
-	return (v);
+	return (ft_todeg(acosf(ft_dot_product(a, b) /
+		(ft_vecnorm(a) * ft_vecnorm(b)))));
 }

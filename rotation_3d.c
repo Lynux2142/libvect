@@ -6,13 +6,13 @@
 /*   By: lguiller <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/26 15:39:47 by lguiller          #+#    #+#             */
-/*   Updated: 2018/08/08 10:22:58 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/10/23 13:54:22 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvect.h"
 
-t_mat3	ft_rot_x(t_mat3 v, double a)
+t_mat3	ft_vecrotx(t_mat3 v, double a)
 {
 	t_mat3	w;
 	double	y;
@@ -26,7 +26,7 @@ t_mat3	ft_rot_x(t_mat3 v, double a)
 	return (w);
 }
 
-t_mat3	ft_rot_y(t_mat3 v, double a)
+t_mat3	ft_vecroty(t_mat3 v, double a)
 {
 	t_mat3	w;
 	double	x;
@@ -40,7 +40,7 @@ t_mat3	ft_rot_y(t_mat3 v, double a)
 	return (w);
 }
 
-t_mat3	ft_rot_z(t_mat3 v, double a)
+t_mat3	ft_vecrotz(t_mat3 v, double a)
 {
 	t_mat3	w;
 	double	x;
@@ -52,4 +52,14 @@ t_mat3	ft_rot_z(t_mat3 v, double a)
 	w.y = x * sin(a) + y * cos(a);
 	w.z = v.z;
 	return (w);
+}
+
+t_mat3	ft_vecrot(t_mat3 a, float xrot, float yrot, float zrot)
+{
+	t_mat3	v;
+
+	v = ft_vecrotz(a, zrot);
+	v = ft_vecroty(v, yrot);
+	v = ft_vecrotx(v, xrot);
+	return (v);
 }
