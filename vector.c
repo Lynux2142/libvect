@@ -6,13 +6,13 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 13:42:53 by lguiller          #+#    #+#             */
-/*   Updated: 2018/10/23 13:48:05 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/11/20 16:11:03 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvect.h"
 
-t_mat3	ft_vecdef(float x, float y, float z)
+t_mat3	ft_vecdef(double x, double y, double z)
 {
 	t_mat3	v;
 

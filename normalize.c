@@ -6,13 +6,13 @@
 /*   By: lguiller <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 17:11:24 by lguiller          #+#    #+#             */
-/*   Updated: 2018/10/23 13:48:12 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/11/20 16:10:49 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvect.h"
 
-float	ft_vecnorm(t_mat3 a)
+double	ft_vecnorm(t_mat3 a)
 {
 	return (sqrt(a.x * a.x + a.y * a.y + a.z * a.z));
 }

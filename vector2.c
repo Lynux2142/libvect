@@ -6,13 +6,13 @@
 /*   By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 13:51:47 by lguiller          #+#    #+#             */
-/*   Updated: 2018/10/23 13:51:49 by lguiller         ###   ########.fr       */
+/*   Updated: 2018/11/20 16:11:13 by lguiller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libvect.h"
 
-t_mat3	ft_vecscale(t_mat3 a, float s)
+t_mat3	ft_vecscale(t_mat3 a, double s)
 {
 	t_mat3	v;
 
@@ -22,7 +22,7 @@ t_mat3	ft_vecscale(t_mat3 a, float s)
 	return (v);
 }
 
-t_mat3	ft_vecdiv(t_mat3 a, float s)
+t_mat3	ft_vecdiv(t_mat3 a, double s)
 {
 	t_mat3	v;
 
