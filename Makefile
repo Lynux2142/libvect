@@ -6,7 +6,7 @@
 #    By: lguiller <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 11:15:29 by lguiller          #+#    #+#              #
-#    Updated: 2018/10/23 14:06:54 by lguiller         ###   ########.fr        #
+#    Updated: 2018/11/23 19:02:23 by lguiller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME	= libvect.a
 SRC		= $(addsuffix .c, rotation_3d normalize dot_product reverse_vect \
 		  vector vector2 vector3 intersection convertion)
 OBJ		= $(SRC:.c=.o)
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -g
 
 ##################
 ##    COLORS    ##
@@ -46,18 +46,21 @@ _CUT		= "\033[k"
 ##   TARGETS    ##
 ##################
 
-.PHONY: all clean fclean re norme
+.PHONY: all clean fclean re norme print
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+print:
+	@echo $(_CLEAR)$(_YELLOW)"Building - "$(_GREEN)$(NAME)$(_END)
+
+$(NAME): print $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo $(_YELLOW)"building - "$(_GREEN)$(NAME)$(_END)
-	@echo $(_GREEN)"Done."$(_END)$(_SHOW_CURS)
+	@echo $(_GREEN)"\nDone.\n"$(_END)$(_SHOW_CURS)
 
 %.o: %.c
 	@gcc $(FLAGS) -c $^ -o $@
+	@printf $^
 
 clean:
 	@/bin/rm -f $(OBJ)
