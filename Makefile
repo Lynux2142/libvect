@@ -6,7 +6,7 @@
 #    By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/27 14:09:33 by lguiller          #+#    #+#              #
-#    Updated: 2019/09/06 14:55:14 by lguiller         ###   ########.fr        #
+#    Updated: 2019/09/06 17:36:25 by lguiller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,20 @@
 ##################
 
 NAME		= libvect.a
-SRCS		= $(addsuffix .c, rotation_3d normalize dot_product reverse_vect \
-			  vector vector2 vector3 intersection convertion)
+
+SRCS1		= rotation_3d
+SRCS1		+= normalize
+SRCS1		+= dot_product
+SRCS1		+= reverse_vect
+SRCS1		+= vector
+SRCS1		+= vector2
+SRCS1		+= vector3
+SRCS1		+= intersection
+SRCS1		+= convertion
+
+SRCS		= $(addsuffix .c, $(SRCS1))
 OBJS		= $(SRCS:.c=.o)
+
 CFLAGS		= -Wall -Wextra -Werror -g
 CC			= clang
 
@@ -50,15 +61,16 @@ _CUT		= "\033[k"
 .PHONY: all clean fclean re norme print
 .SILENT:
 
-all: $(NAME)
+all: launch
 
-print:
+launch:
 	echo $(_CLEAR)$(_YELLOW)"Building - "$(_GREEN)$(NAME)$(_END)
+	$(MAKE) $(NAME)
+	echo $(_GREEN)"\nDone."$(_END)$(_SHOW_CURS)
 
-$(NAME): print $(OBJS)
+$(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
-	echo $(_GREEN)"\nDone."$(_END)$(_SHOW_CURS)
 
 $(OBJS): %.o: %.c
 	gcc $(FLAGS) -c $< -o $@
