@@ -6,7 +6,7 @@
 #    By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/27 14:09:33 by lguiller          #+#    #+#              #
-#    Updated: 2018/11/27 14:09:35 by lguiller         ###   ########.fr        #
+#    Updated: 2019/09/06 14:55:14 by lguiller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,12 @@
 ##  VARIABLES   ##
 ##################
 
-NAME	= libvect.a
-SRC		= $(addsuffix .c, rotation_3d normalize dot_product reverse_vect \
-		  vector vector2 vector3 intersection convertion)
-OBJ		= $(SRC:.c=.o)
-FLAGS	= -Wall -Wextra -Werror -g
+NAME		= libvect.a
+SRCS		= $(addsuffix .c, rotation_3d normalize dot_product reverse_vect \
+			  vector vector2 vector3 intersection convertion)
+OBJS		= $(SRCS:.c=.o)
+CFLAGS		= -Wall -Wextra -Werror -g
+CC			= clang
 
 ##################
 ##    COLORS    ##
@@ -47,30 +48,31 @@ _CUT		= "\033[k"
 ##################
 
 .PHONY: all clean fclean re norme print
+.SILENT:
 
 all: $(NAME)
 
 print:
-	@echo $(_CLEAR)$(_YELLOW)"Building - "$(_GREEN)$(NAME)$(_END)
+	echo $(_CLEAR)$(_YELLOW)"Building - "$(_GREEN)$(NAME)$(_END)
 
-$(NAME): print $(OBJ)
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
-	@echo $(_GREEN)"\nDone.\n"$(_END)$(_SHOW_CURS)
+$(NAME): print $(OBJS)
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
+	echo $(_GREEN)"\nDone."$(_END)$(_SHOW_CURS)
 
-%.o: %.c
-	@gcc $(FLAGS) -c $^ -o $@
-	@printf $^
+$(OBJS): %.o: %.c
+	gcc $(FLAGS) -c $< -o $@
+	printf $<
 
 clean:
-	@/bin/rm -f $(OBJ)
+	$(RM) $(OBJS)
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	$(RM) $(NAME)
 
 re:
-	@$(MAKE) fclean
-	@$(MAKE)
+	$(MAKE) fclean
+	$(MAKE)
 
 norme:
-	@norminette *.[c,h]
+	norminette *.[c,h]
