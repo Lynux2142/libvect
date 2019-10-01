@@ -6,7 +6,7 @@
 #    By: lguiller <lguiller@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/27 14:09:33 by lguiller          #+#    #+#              #
-#    Updated: 2019/09/06 17:39:36 by lguiller         ###   ########.fr        #
+#    Updated: 2019/10/01 10:18:36 by lguiller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ _CUT		= "\033[k"
 ##   TARGETS    ##
 ##################
 
-.PHONY: all clean fclean re norme
+.PHONY: all launch clean fclean re norme
 .SILENT:
 
 all: launch
